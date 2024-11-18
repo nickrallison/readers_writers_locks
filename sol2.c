@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-int readers = 0;
-int writers = 0;
-semaphore_t resource;
-semaphore_t readtry;
-semaphore_t rentry;
-semaphore_t rmutex;
-semaphore_t wmutex;
+static int readers = 0;
+static int writers = 0;
+static semaphore_t resource;
+static semaphore_t readtry;
+static semaphore_t rentry;
+static semaphore_t rmutex;
+static semaphore_t wmutex;
 
-void *reader(void *arg) {
+static void *reader(void *arg) {
     struct timespec start_time, end_time;
     double *elapsed_time = malloc(sizeof(double));
 
@@ -43,7 +43,7 @@ void *reader(void *arg) {
     return (void *)elapsed_time;
 }
 
-void *writer(void *arg) {
+static void *writer(void *arg) {
     struct timespec start_time, end_time;
     double *elapsed_time = malloc(sizeof(double));
 

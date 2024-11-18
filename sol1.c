@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-int readers = 0;
-semaphore_t resource;
-semaphore_t mutex;
+static int readers = 0;
+static semaphore_t resource;
+static semaphore_t mutex;
 
-void *reader(void *arg) {
+static void *reader(void *arg) {
     struct timespec start_time, end_time;
     double *elapsed_time = malloc(sizeof(double));
 
@@ -35,7 +35,7 @@ void *reader(void *arg) {
     return (void *)elapsed_time;
 }
 
-void *writer(void *arg) {
+static void *writer(void *arg) {
     struct timespec start_time, end_time;
     double *elapsed_time = malloc(sizeof(double));
 

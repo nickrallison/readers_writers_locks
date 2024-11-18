@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-int readcount = 0;
-int writecount = 0;
-semaphore_t x;
-semaphore_t y;
-semaphore_t z;
-semaphore_t wsem;
-semaphore_t rsem;
+static int readcount = 0;
+static int writecount = 0;
+static semaphore_t x;
+static semaphore_t y;
+static semaphore_t z;
+static semaphore_t wsem;
+static semaphore_t rsem;
 
-void *reader(void *arg) {
+static void *reader(void *arg) {
     struct timespec start_time, end_time;
     double *elapsed_time = malloc(sizeof(double));
 
@@ -43,7 +43,7 @@ void *reader(void *arg) {
     return (void *)elapsed_time;
 }
 
-void *writer(void *arg) {
+static void *writer(void *arg) {
     struct timespec start_time, end_time;
     double *elapsed_time = malloc(sizeof(double));
 
