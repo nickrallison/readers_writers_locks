@@ -9,7 +9,7 @@ int main() {
     int num_readers = 10;
 
     printf("Readers-Writers Solution 1 (time in seconds)\n");
-    printf("Writers AVG reader TAT AVG writer TAT AVG TAT\n");
+    printf("%-8s %-15s %-15s %-15s\n", "Writers", "AVG reader TAT", "AVG writer TAT", "AVG TAT");
     for (int num_writers = 0; num_writers <= 10; num_writers++) {
         double reader_time_by_id[num_readers];
         double writer_time_by_id[num_writers];
@@ -28,15 +28,15 @@ int main() {
         double avg_tat;
         if (num_writers == 0) {
             avg_tat = avg_reader_tat;
-            printf("%d %lf N/A %lf\n", num_writers, avg_reader_tat, avg_tat);
+            printf("%-8d %-15.6lf %-15s %-15.6lf\n", num_writers, avg_reader_tat, "N/A", avg_tat);
         } else {
             avg_tat = (avg_reader_tat * num_readers + avg_writer_tat * num_writers) / (num_readers + num_writers);
-            printf("%d %lf %lf %lf\n", num_writers, avg_reader_tat, avg_writer_tat, avg_tat);
+            printf("%-8d %-15.6lf %-15.6lf %-15.6lf\n", num_writers, avg_reader_tat, avg_writer_tat, avg_tat);
         }
     }
 
     printf("Readers-Writers Solution 2 (time in seconds)\n");
-    printf("Writers AVG reader TAT AVG writer TAT AVG TAT\n");
+    printf("%-8s %-15s %-15s %-15s\n", "Writers", "AVG reader TAT", "AVG writer TAT", "AVG TAT");
     for (int num_writers = 0; num_writers <= 10; num_writers++) {
         double reader_time_by_id[num_readers];
         double writer_time_by_id[num_writers];
@@ -61,15 +61,15 @@ int main() {
         double avg_tat;
         if (num_writers == 0) {
             avg_tat = avg_reader_tat;
-            printf("%d %lf N/A %lf\n", num_writers, avg_reader_tat, avg_tat);
+            printf("%-8d %-15.6lf %-15s %-15.6lf\n", num_writers, avg_reader_tat, "N/A", avg_tat);
         } else {
             avg_tat = (avg_reader_tat * num_readers + avg_writer_tat * num_writers) / (num_readers + num_writers);
-            printf("%d %lf %lf %lf\n", num_writers, avg_reader_tat, avg_writer_tat, avg_tat);
+            printf("%-8d %-15.6lf %-15.6lf %-15.6lf\n", num_writers, avg_reader_tat, avg_writer_tat, avg_tat);
         }
     }
 
     printf("Readers-Writers Solution 3 (time in seconds)\n");
-    printf("Writers AVG reader TAT AVG writer TAT AVG TAT\n");
+    printf("%-8s %-15s %-15s %-15s\n", "Writers", "AVG reader TAT", "AVG writer TAT", "AVG TAT");
     for (int num_writers = 0; num_writers <= 10; num_writers++) {
         double reader_time_by_id[num_readers];
         double writer_time_by_id[num_writers];
@@ -88,10 +88,10 @@ int main() {
         double avg_tat;
         if (num_writers == 0) {
             avg_tat = avg_reader_tat;
-            printf("%d %lf N/A %lf\n", num_writers, avg_reader_tat, avg_tat);
+            printf("%-8d %-15.6lf %-15s %-15.6lf\n", num_writers, avg_reader_tat, "N/A", avg_tat);
         } else {
             avg_tat = (avg_reader_tat * num_readers + avg_writer_tat * num_writers) / (num_readers + num_writers);
-            printf("%d %lf %lf %lf\n", num_writers, avg_reader_tat, avg_writer_tat, avg_tat);
+            printf("%-8d %-15.6lf %-15.6lf %-15.6lf\n", num_writers, avg_reader_tat, avg_writer_tat, avg_tat);
         }
     }
 
